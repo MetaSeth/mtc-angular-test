@@ -1,0 +1,34 @@
+FormUser
+<div class="container">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="firstName">Nom</label>
+      <input formControlName="firstName" type="String" class="form-control" id="fName" />
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Prénom</label>
+      <input formControlName="lastName" type="String" class="form-control" id="lName" />
+    </div>
+
+    <div class="form-group">
+      <label for="birthDate">Date de naissance</label>
+      <input formControlName="birthDate" type="date" class="form-control" id="bDate" />
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNum">Numéro de téléphone</label>
+      <input formControlName="phoneNum" type="String" class="form-control" id="phoneNum" />
+    </div>
+
+    <div class="form-group">
+      <label for="mail">Adresse mail</label>
+      <input formControlName="mail" type="String" class="form-control" id="mail" />
+    </div>
+
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (submit)='onSubmit()'>Submit</button>
+
+  </form>
+</div>
