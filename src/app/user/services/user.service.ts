@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/shared/models/user.model';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private itemsCollection: AngularFirestoreCollection<User>;
 
-  constructor() { }
+  constructor( private afs: AngularFirestore) { }
 
-  public add(item: User) {/*: Promise<any> {
-    const id = this.afs.createId();
-    const prestation = { id, ...item };
-    return this.itemsCollection.doc(id).set(prestation).catch((e) => {
-      console.log(e);
-    });*/
-    // return this.http.post('${this.urlapi}collection', item);
-    console.log('user : ', item);
+  public add(item: User): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.afs
+          .collection('users')
+          .add(item)
+          .then(res => {}, err => reject(err));
+  });
   }
 }

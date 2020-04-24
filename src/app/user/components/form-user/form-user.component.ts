@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/shared/models/user.model';
 
@@ -14,19 +14,21 @@ export class FormUserComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-      this.generateForm();
-  }
-  private generateForm() {
-      this.form = this.fb.group({
-          lastName: [this.init.lastName],
-          firstName: [this.init.firstName],
-          birthDate: [this.init.birthDate],
-          phoneNum: [this.init.phoneNum],
-          mail: [this.init.mail]
-      });
-  }
-  public onSubmit() {
-      this.nItem.emit(this.form.value);
+    this.generateForm();
 
   }
+  private generateForm() {
+    this.form = this.fb.group({
+      lastName: [this.init.lastName, Validators.required,],
+      firstName: [this.init.firstName, Validators.required,],
+      birthDate: [this.init.birthDate, Validators.required,],
+      phoneNum: [this.init.phoneNum, Validators.pattern('[0-9]*')],
+      mail: [this.init.mail, Validators.compose([Validators.required, Validators.email])]
+    });
+  }
+  public onSubmit() {
+    this.nItem.emit(this.form.value);
+
+  }
+
 }
