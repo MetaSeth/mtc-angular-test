@@ -29,7 +29,11 @@
             ],
             "styles": [
               "src/styles.scss"
-            ],
+            ],"stylePreprocessorOptions": {
+            "includePaths": [
+              "src/styling/"
+            ]
+          },
             "scripts": []
           },
           "configurations": {

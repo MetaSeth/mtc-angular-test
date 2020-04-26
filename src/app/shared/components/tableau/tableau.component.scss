@@ -1,0 +1,15 @@
+@import 'theme';
+
+#tableau-light{
+.state-annule, .state-inactif {
+  background: $color1;
+}
+tbody>* {
+  display: contents;
+}
+}
+
+app-template-a #tableau-light thead {
+  background: $dark-color;
+  color: $light-color;
+}

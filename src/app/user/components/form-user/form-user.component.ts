@@ -27,6 +27,7 @@ export class FormUserComponent implements OnInit {
     });
   }
   public onSubmit() {
+    console.log("form-user");
     this.nItem.emit(this.form.value);
 
   }

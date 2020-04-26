@@ -1,0 +1,14 @@
+<div class='table-responsive' id='tableau-light'>
+    <table class="table">
+        <thead>
+            <tr >
+              <th scope="col" *ngFor="let label of labels">{{label}}</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        <ng-content></ng-content>
+
+        </tbody>
+      </table>
+</div>

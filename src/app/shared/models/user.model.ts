@@ -7,5 +7,9 @@ export class User implements UserI {
   phoneNum: string;
   mail: string;
 
-  constructor() { }
+  constructor(field?: Partial<User>) {
+    if ( field ) {
+      Object.assign(this, field);
+    }
+  }
 }

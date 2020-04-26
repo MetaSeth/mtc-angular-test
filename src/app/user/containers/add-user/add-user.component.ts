@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/shared/models/user.model';
 
 import { UserService } from '../../services/user.service';
@@ -9,20 +10,19 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./add-user.component.scss']
 })
 export class AddUserComponent implements OnInit {
-
-  constructor(private userService: UserService,
+  @Output() nItem: EventEmitter<User> = new EventEmitter();
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
   }
 
   addUser(obj: User) {
-    this.userService.add(obj); /*/!\.then(() =>
+    this.nItem.emit(obj);
 
-      // this.router.navigate('/user');
-      this.router.navigate(['../'], {
-        relativeTo: this.route
-      }));*/
 
   }
 }

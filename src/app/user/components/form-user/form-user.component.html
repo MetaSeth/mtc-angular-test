@@ -3,66 +3,79 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
-      <label for="firstName">Nom</label>
-      <input formControlName="firstName" type="String" class="form-control" id="fName" />
+      <label for="firstName">Nom*</label>
+      <input formControlName="firstName" type="String" class="form-control is-valid" id="fName" />
     </div>
-    <div *ngIf="form.get('firstName').invalid && (form.get('firstName').dirty || form.get('firstName').touched)"
-      class="alert alert-danger">
-      <div *ngIf="form.get('firstName').errors.required">
+    <div *ngIf="(form.get('firstName').dirty || form.get('firstName').touched)">
+      <div *ngIf="form.get('firstName').invalid && form.get('firstName').errors.required" class="alert alert-danger">
         Le nom est obligatoire
+      </div>
+      <div *ngIf="!form.get('firstName').invalid" class='valid-icon'>
+        <span class="glyphicon glyphicon-ok"></span>
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+      <label for="lastName">Prénom*</label>
+      <input formControlName="lastName" type="String" class="form-control" id="lName" />
+    </div>
+    <div *ngIf=" (form.get('lastName').dirty || form.get('lastName').touched)">
+      <div *ngIf="form.get('lastName').invalid && form.get('lastName').errors.required" class="alert alert-danger">
+        Le Prénom est obligatoire
+      </div>
+      <div *ngIf="!form.get('lastName').invalid" class='valid-icon'>
+        <span class="glyphicon glyphicon-ok"></span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="birthDate">Date de naissance*</label>
+      <input formControlName="birthDate" type="date" class="form-control" id="bDate" />
+    </div>
+    <div *ngIf="(form.get('birthDate').dirty || form.get('birthDate').touched)">
+      <div *ngIf="form.get('birthDate').invalid && form.get('birthDate').errors.required" class="alert alert-danger">
+        La date de naissance est obligatoire
+      </div>
+      <div *ngIf="!form.get('birthDate').invalid" class='valid-icon'>
+        <span class="glyphicon glyphicon-ok"></span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNum">Numéro de téléphone</label>
+      <input formControlName="phoneNum" type="String" class="form-control" id="phoneNum" />
+    </div>
+    <div *ngIf=" form.get('phoneNum').touched">
+      <div *ngIf="form.get('phoneNum').invalid && form.get('phoneNum').errors.pattern" class="alert alert-danger">
+        Le numéro de téléphone doit être composé de 10 chiffres de 0 à 9
+      </div>
+      <div *ngIf="!form.get('phoneNum').invalid" class='valid-icon'>
+        <span class="glyphicon glyphicon-ok"></span>
       </div>
     </div>
 
 
     <div class="form-group">
-      <label for="lastName">Prénom</label>
-      <input formControlName="lastName" type="String" class="form-control" id="lName" />
+      <label for="mail">Adresse mail*</label>
+      <input formControlName="mail" type="String" class="form-control" id="mail" />
     </div>
-    <div *ngIf="form.get('lastName').invalid && (form.get('lastName').dirty || form.get('lastName').touched)"
-      class="alert alert-danger">
-      <div *ngIf="form.get('lastName').errors.required">
-        Le Prénom est obligatoire
-      </div>
-    </div>
-
-      <div class="form-group">
-        <label for="birthDate">Date de naissance</label>
-        <input formControlName="birthDate" type="date" class="form-control" id="bDate" />
-      </div>
-      <div *ngIf="form.get('birthDate').invalid && (form.get('birthDate').dirty || form.get('birthDate').touched)"
-        class="alert alert-danger">
-        <div *ngIf="form.get('birthDate').errors.required">
-          La date de naissance est obligatoire
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="phoneNum">Numéro de téléphone</label>
-        <input formControlName="phoneNum" type="String" class="form-control" id="phoneNum" />
-      </div>
-      <div *ngIf="form.get('phoneNum').invalid && (form.get('phoneNum').dirty || form.get('phoneNum').touched)"
-        class="alert alert-danger">
-        <div *ngIf="form.get('phoneNum').errors.pattern">
-          Le numéro de téléphone doit être composé de chiffres de 0 à 9
-        </div>
-      </div>
-
-
-      <div class="form-group">
-        <label for="mail">Adresse mail</label>
-        <input formControlName="mail" type="String" class="form-control" id="mail" />
-      </div>
-      <div *ngIf="form.get('mail').invalid && (form.get('mail').dirty || form.get('mail').touched)"
-      class="alert alert-danger">
-      <div *ngIf="form.get('mail').errors.required">
+    <div *ngIf=" (form.get('mail').dirty || form.get('mail').touched)"
+      >
+      <div *ngIf="form.get('mail').invalid && form.get('mail').errors.required" class="alert alert-danger">
         Le mail est obligatoire
       </div>
-      <div *ngIf="form.get('mail').errors.email">
+      <div *ngIf="form.get('mail').invalid && form.get('mail').errors.email" class="alert alert-danger">
         Veuillez entrer un mail valide
+      </div>
+      <div *ngIf="!form.get('mail').invalid" class='valid-icon'>
+        <span class="glyphicon glyphicon-ok"></span>
       </div>
     </div>
 
-      <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (submit)='onSubmit()'>Submit</button>
-
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary" (submit)='onSubmit()'>Enregistrer</button>
+      {{form.invalid}}
   </form>
 </div>

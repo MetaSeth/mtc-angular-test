@@ -27,10 +27,21 @@ input[type=submit]:hover {
 
 /* Add a background color and some padding around the form */
 .container {
+  margin-top:50px;
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+
 }
 .alert-danger{
 background-color: red
 }
+.valid-icon{
+  float: inline-end;
+  position: relative;
+  width: auto;
+  left: 10px;
+  color: green;
+  }
+
+

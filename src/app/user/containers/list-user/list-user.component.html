@@ -1,0 +1,3 @@
+<app-tableau [labels]='labels'>
+<app-item-user *ngFor="let obj of (collectionUsers | async )" [item]='obj'></app-item-user>
+</app-tableau>
