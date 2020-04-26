@@ -1,6 +1,9 @@
 {
   "name": "mtc-angular-test",
-  "version": "0.0.0",
+  "version": "0.0.1node",
+  "engines": {
+    "node": "10.15.3"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
