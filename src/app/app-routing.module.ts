@@ -7,6 +7,10 @@ import { PageListUsersComponent } from './user/pages/page-list-users/page-list-u
 
 const routes: Routes = [
   {
+    path: '',
+    component: PageAddUserComponent
+  },
+  {
     path: 'register',
     component: PageAddUserComponent
   },
