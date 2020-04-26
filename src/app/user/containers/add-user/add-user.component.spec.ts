@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { UserService } from '../../services/user.service';
 import { AddUserComponent } from './add-user.component';
 import { UserModule } from '../../user.module';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/shared/models/user.model';
 
 describe('AddUserComponent', () => {
   let component: AddUserComponent;
@@ -9,8 +11,8 @@ describe('AddUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [UserModule],
-      declarations: [ AddUserComponent ]
+      declarations: [ AddUserComponent ],
+      providers: [UserService]
     })
     .compileComponents();
   }));

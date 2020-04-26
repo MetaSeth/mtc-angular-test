@@ -19,17 +19,15 @@ export class FormUserComponent implements OnInit {
   }
   private generateForm() {
     this.form = this.fb.group({
-      lastName: [this.init.lastName, Validators.required,],
-      firstName: [this.init.firstName, Validators.required,],
-      birthDate: [this.init.birthDate, Validators.required,],
+      lastName: [this.init.lastName, Validators.required, ],
+      firstName: [this.init.firstName, Validators.required, ],
+      birthDate: [this.init.birthDate, Validators.required, ],
       phoneNum: [this.init.phoneNum, Validators.pattern('[0-9]*')],
       mail: [this.init.mail, Validators.compose([Validators.required, Validators.email])]
     });
   }
   public onSubmit() {
-    console.log("form-user");
     this.nItem.emit(this.form.value);
-
   }
 
 }

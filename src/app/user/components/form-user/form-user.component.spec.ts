@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { UserModule } from '../../user.module';
 import { FormUserComponent } from './form-user.component';
 
 describe('FormUserComponent', () => {
@@ -8,9 +10,11 @@ describe('FormUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormUserComponent ]
+      imports: [FormBuilder, FormGroup, Validators, UserModule],
+      declarations: [FormUserComponent],
+      providers: [FormBuilder]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
