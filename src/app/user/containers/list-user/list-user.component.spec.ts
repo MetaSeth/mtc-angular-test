@@ -12,11 +12,11 @@ describe('ListUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports : [UserModule],
-      declarations: [ ListUserComponent ],
-      providers:[UserService]
+      imports: [UserModule],
+      declarations: [ListUserComponent],
+      providers: [UserService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

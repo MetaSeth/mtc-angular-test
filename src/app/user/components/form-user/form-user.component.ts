@@ -28,6 +28,7 @@ export class FormUserComponent implements OnInit {
   }
   public onSubmit() {
     this.nItem.emit(this.form.value);
+    this.generateForm();
   }
 
 }

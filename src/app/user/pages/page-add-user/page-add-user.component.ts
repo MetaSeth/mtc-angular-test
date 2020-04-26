@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
 import { User } from 'src/app/shared/models/user.model';
+
+import { UserService } from '../../services/user.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class PageAddUserComponent implements OnInit {
   ngOnInit() {
   }
   addUser(obj: User) {
-    this.userService.addUser(obj).then(res => {console.log('page add')
-    });
+    this.userService.addUser(obj).then(res => { console.log('page add'); });
+
   }
 }

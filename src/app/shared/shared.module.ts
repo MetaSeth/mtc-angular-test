@@ -10,6 +10,6 @@ import { TableauComponent } from './components/tableau/tableau.component';
   imports: [
     CommonModule
   ],
-  exports:[TableauComponent]
+  exports: [TableauComponent]
 })
 export class SharedModule { }
