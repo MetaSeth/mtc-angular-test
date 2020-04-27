@@ -15,8 +15,5 @@ export class PageAddUserComponent implements OnInit {
 
   ngOnInit() {
   }
-  addUser(obj: User) {
-    this.userService.addUser(obj).then(res => { console.log('page add'); });
 
-  }
 }
