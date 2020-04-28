@@ -24,12 +24,11 @@ export class UserService {
 
 
   public addUser(item: User): Promise<any> {
-    return new Promise<any>((resolve, reject) => {
-      this.afs
-        .collection('users')
-        .add(item)
-        .then(res => { }, err => reject(err));
-    });
+
+    return this.afs
+      .collection('users')
+      .add(item);
+
   }
   public getUsers(): Observable<User[]> {
     return this.collection;
